@@ -7,25 +7,29 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
         body{
-            background-image:linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.2)),url("https://wallpapercave.com/wp/Tw6sIbA.jpg");
+            background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url("https://wallpapercave.com/wp/Tw6sIbA.jpg");
             width: 100%;
             height: 100vh;
             background-position: center;
             background-repeat: no-repeat;
-            /* background-size: cover;  */
+            background-size: cover;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0;
         }
         .container{
-            /* display: flex;
-            justify-content: center; */
-            margin: auto;
-            left: 0;
-            right: 0;
+            outline: none;
             width: 40%;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform:translate(-50%,-50%);
             border-radius: 6px;
-            /* align-items: center; */
-            /* flex: center; */
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
             border: 1px white solid;
-            /* background-image: url("https://www.creativefabrica.com/wp-content/uploads/2020/02/07/Simple-Gradient-Background-Graphics-1.jpg"); */
             background-size: contain;
         }
         #logo{
@@ -36,10 +40,16 @@
         }
         .search{
             text-align: center;
+            margin-bottom: 20px;
         }
         #in1{
             width: 60%;
             height: 30px;
+            outline: none;
+            border: 2px solid white;
+            border-bottom: 2px solid blue;
+            padding: 5px;
+            border-radius: 3px;
         }
         #btn1{
             border-radius: 3px;
@@ -47,8 +57,6 @@
             border-color: white;
             background-color: rgb(17, 142, 226);
             color: white;
-            /* background-size: cover; */
-            /* color: white; */
             width: 20%;
         }
         #in1{
@@ -59,19 +67,14 @@
             border-right: 2px white solid ;
         }
         #msg{
-            /* display: flex;
-            align-items: center;
-            justify-content: space-between;
-            display: inline-block; */
             color: white;
-            /* position: relative; */
-             margin-left: 45px; 
-            margin-top: 10px; 
             font-size: 20px;
+            display: block;
+           text-align: center;
+
         }
         .news{
            margin-right: 30px;
-           /* border-bottom: 2px black solid; */
         }
        .news ul{
         color: white;
@@ -88,17 +91,17 @@
             background-size: contain;
         }
         #del{
-            /* float: right; */
-            /* margin-right: 40px; */
-            margin-left: 80px;
-            border-radius: 3px;
-            height: 30px;
-            border-color: white;
-            /* background-color: rgb(17, 142, 226); */
-            background-size: contain;
-            color: white;
-            cursor: pointer;
-            width: 20%;
+          background-color: red;
+          color: white;
+          width: 15%;
+          height:30px;
+          border-radius: 3px;
+          display: block;
+          margin: auto;
+          left: 0;
+          right: 0;
+          margin-top: 20px;
+          margin-bottom: 10px;
         }
     </style>
 </head>
@@ -110,12 +113,10 @@
             <button id="btn1" onclick="add()">Add</button>
         </div>
         <div id="msg">You have <span id="s1"> 0</span> tasks to be done
-            <span id="del">Delete all</span>
         </div>
         <div class="news">
-            <!-- <img id="im" src="https://static.vecteezy.com/system/resources/previews/007/059/682/original/to-do-list-concept-illustration-free-vector.jpg" width="20%"> -->
-             
         </div>
+        <div id="dd"><button id="del">Delete all</button></div>
     </div>
     <script>
         let text1 = document.getElementById("in1");
@@ -128,9 +129,6 @@
                 let create = document.createElement("ul");
                 create.innerHTML = `${text1.value} <i class="fa-solid fa-trash"></i>`;
                 newTaskContainer.appendChild(create);
-                // let create2= document.createElement("button");
-                // create2.setAttribute("id","del");
-                // newTaskContainer.appendChild(create2);
                 document.querySelector("#del").addEventListener("click",delet);
                 function delet(){
                     newTaskContainer.innerHTML="";
