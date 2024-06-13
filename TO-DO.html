@@ -94,8 +94,10 @@
             border-radius: 3px;
             height: 30px;
             border-color: white;
-            background-color: rgb(17, 142, 226);
+            /* background-color: rgb(17, 142, 226); */
+            background-size: contain;
             color: white;
+            cursor: pointer;
             width: 20%;
         }
     </style>
@@ -108,7 +110,7 @@
             <button id="btn1" onclick="add()">Add</button>
         </div>
         <div id="msg">You have <span id="s1"> 0</span> tasks to be done
-            <button id="del">Delete all</button>
+            <span id="del">Delete all</span>
         </div>
         <div class="news">
             <!-- <img id="im" src="https://static.vecteezy.com/system/resources/previews/007/059/682/original/to-do-list-concept-illustration-free-vector.jpg" width="20%"> -->
@@ -131,7 +133,7 @@
                 // newTaskContainer.appendChild(create2);
                 document.querySelector("#del").addEventListener("click",delet);
                 function delet(){
-                    newTaskContainer.remove();
+                    newTaskContainer.innerHTML="";
                     count=0; 
                     document.getElementById("s1").innerHTML=count;
                 }
